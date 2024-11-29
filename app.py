@@ -3,9 +3,16 @@ from flask_cors import CORS
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from sentence_transformers import SentenceTransformer, util
 import json
+from waitress import serve
+from app import app  # replace with the actual app instance
+
+if __name__ == "__main__":
+    serve(app, host='0.0.0.0', port=8080)
 
 app = Flask(__name__)
 CORS(app)
+if __name__ == "__main__":
+    app.run(debug=True)
 
 # Load pre-trained models
 model_name = "llama3.2"  # Replace with the actual model name
@@ -35,3 +42,4 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
