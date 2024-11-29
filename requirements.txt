@@ -3,3 +3,5 @@ sentence_transformers
 flask
 flask-cors
 gunicorn==20.1.0  
+serve
+waitress
